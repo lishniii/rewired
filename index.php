@@ -15,7 +15,7 @@
 <!-- Navbar -->
 <div class="w3-top">
     <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
-        <img src="assets/images/rewired%20logo.png" style="height:65px; margin-left: 5%">
+        <a><img src="assets/images/rewired%20logo.png" style="height:65px; margin-left: 5%"></a>
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
         <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="assets/images/logout.png" class="w3-circle" style="height:45px;" alt="Avatar"></a>
     </div>
@@ -162,16 +162,7 @@
                 <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                 <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
             </div>
-
-            <div class="w3-container w3-card-2 w3-white w3-round w3-margin"><br>
-
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                <div class="w3-row-padding" style="margin:0 -16px">
-                </div>
-                <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
-                <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
-            </div>
-
+            
 
             <!-- End Middle Column -->
         </div>
@@ -189,7 +180,7 @@
 <!-- Footer -->
 
 <footer class="w3-container w3-theme-d5">
-    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" target="_blank">w3.css</a></p>
+    <center><p><a style="font-size: x-small">Subreddit recommendation according to a per-topic summary of interests under topic specific tweet footprints</a></p></center>
 </footer>
 
 <script>
