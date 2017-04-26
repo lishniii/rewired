@@ -17,7 +17,7 @@
     <div class="w3-bar w3-theme-d2 w3-left-align w3-large">
         <a><img src="assets/images/rewired%20logo.png" style="height:65px; margin-left: 5%"></a>
         <a class="w3-bar-item w3-button w3-hide-medium w3-hide-large w3-right w3-padding-large w3-hover-white w3-large w3-theme-d2" href="javascript:void(0);" onclick="openNav()"><i class="fa fa-bars"></i></a>
-        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="My Account"><img src="assets/images/logout.png" class="w3-circle" style="height:45px;" alt="Avatar"></a>
+        <a href="#" class="w3-bar-item w3-button w3-hide-small w3-right w3-padding-large w3-hover-white" title="Logout"><img src="assets/images/logout.png" class="w3-circle" style="height:45px;"></a>
     </div>
 </div>
 
@@ -162,7 +162,7 @@
                 <button type="button" class="w3-button w3-theme-d1 w3-margin-bottom"><i class="fa fa-thumbs-up"></i>  Like</button>
                 <button type="button" class="w3-button w3-theme-d2 w3-margin-bottom"><i class="fa fa-comment"></i>  Comment</button>
             </div>
-            
+
 
             <!-- End Middle Column -->
         </div>

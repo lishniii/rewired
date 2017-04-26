@@ -1,0 +1,66 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "content-hash": "c2f7d18f6d365b9d7cf31f1655c25924",
+    "packages": [
+        {
+            "name": "artstorm/monkeylearn-api",
+            "version": "0.5",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/artstorm/monkeylearn-api-php.git",
+                "reference": "95323f42835dad3758ac2f5178d6f4a185f7fea5"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/artstorm/monkeylearn-api-php/zipball/95323f42835dad3758ac2f5178d6f4a185f7fea5",
+                "reference": "95323f42835dad3758ac2f5178d6f4a185f7fea5",
+                "shasum": ""
+            },
+            "require": {
+                "ext-curl": "*",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "4.*",
+                "squizlabs/php_codesniffer": "~2.3"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Artstorm\\MonkeyLearn\\": "src/",
+                    "Artstorm\\MonkeyLearn\\Tests\\": "tests/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Johan Steen",
+                    "homepage": "https://johansteen.se",
+                    "role": "Developer"
+                }
+            ],
+            "description": "MonkeyLearn API v2 client",
+            "homepage": "https://github.com/artstorm/monkeylearn-api-php",
+            "keywords": [
+                "api",
+                "monkeylearn"
+            ],
+            "time": "2016-04-02T03:49:32+00:00"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": [],
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}

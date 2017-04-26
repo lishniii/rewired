@@ -1,0 +1,5 @@
+{
+    "require": {
+        "artstorm/monkeylearn-api": "^0.5.0"
+    }
+}
