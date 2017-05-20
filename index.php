@@ -26,7 +26,7 @@ $settings = array(
 
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 $requestMethod = "GET";
-if (isset($_GET['user']))  {$user = $_GET['user'];}  else {$user  = "nHiRanZ";}
+if (isset($_GET['user']))  {$user = $_GET['user'];}  else {$user  = "samjancool";}
 if (isset($_GET['count'])) {$count = $_GET['count'];} else {$count = 500;}
 if (isset($_GET['include_rts'])) {$include_rts = $_GET['include_rts'];} else {$include_rts = false;}
 if (isset($_GET['exclude_replies'])) {$exclude_replies = $_GET['exclude_replies'];} else {$exclude_replies = 1;}
@@ -44,10 +44,11 @@ foreach($string as $items)
     array_push($allTweets, $items['text']);
 }
 
+//MonkeyLearn Functions
 require 'monkeylearn/autoload.php';
 
 $ml = new MonkeyLearn\Client('81137672d671ea08af4938ad6a970f4f7bdc8a21');
-$module_id = 'cl_5icAVzKR';
+$module_id = 'cl_5icAVzKR'; //https://app.monkeylearn.com/main/classifiers/cl_YmN3QwVL/
 $res = $ml->classifiers->classify($module_id, $allTweets, true);
 
 $result = $res->result;
@@ -327,6 +328,9 @@ foreach($result as $items)
     function onLoadScripts(){
         fetchPopularSubreddits();
         buildInterestIcons();
+
+        var keywords = <?php echo json_encode($keywords); ?>;
+        fetchSubredditsForInterest(keywords[0]);
     }
 
     function fetchSubredditsForInterest(url){
