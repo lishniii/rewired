@@ -5,7 +5,7 @@
       <configuration sdkName="" />
     </facet>
   </component>
-  <component name="NewModuleRootManager">
+  <component name="NewModuleRootManager" inherit-compiler-output="false">
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/vendor/artstorm/monkeylearn-api" />
       <excludeFolder url="file://$MODULE_DIR$/vendor/composer" />
@@ -17,6 +17,7 @@
         <CLASSES>
           <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
         </CLASSES>
+        <JAVADOC />
         <SOURCES>
           <root url="jar://$APPLICATION_HOME_DIR$/plugins/php/lib/php.jar!/stubs/standard" />
         </SOURCES>
@@ -28,6 +29,7 @@
           <root url="file://$MODULE_DIR$/vendor/artstorm/monkeylearn-api" />
           <root url="file://$MODULE_DIR$/vendor/composer" />
         </CLASSES>
+        <JAVADOC />
         <SOURCES>
           <root url="file://$MODULE_DIR$/vendor/artstorm/monkeylearn-api" />
           <root url="file://$MODULE_DIR$/vendor/composer" />

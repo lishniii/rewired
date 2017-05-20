@@ -12,7 +12,7 @@ TWITTER_ACCESS_TOKEN_KEY = '227584299-k53yk9HxwG2jwwNJMf4lfs20RXc4OhoBApobgZsE'
 TWITTER_ACCESS_TOKEN_SECRET = 'pvA9JkE4rv4C55zY3SOX8qZP14vriOFghsUrMvRcazL68'
 
 # This is the twitter user that we will be profiling using our news classifier.
-#TWITTER_USER = 'raulgarreta'
+# TWITTER_USER = 'raulgarreta'
 TWITTER_USER = 'katyperry'
 
 
@@ -81,7 +81,6 @@ descriptions = get_friends_descriptions(api, TWITTER_USER, max_users=300)
 
 
 def get_tweets(api, twitter_user, tweet_type='timeline', max_tweets=200, min_words=5):
-
     tweets = []
 
     full_tweets = []
@@ -116,6 +115,7 @@ def get_tweets(api, twitter_user, tweet_type='timeline', max_tweets=200, min_wor
             tweets.append((text, score))
 
     return tweets
+
 
 tweets = []
 tweets.extend(get_tweets(api, TWITTER_USER, 'timeline', 1000))  # 400 = 2 requests (out of 15 in the window).
@@ -152,7 +152,7 @@ def classify_batch(text_list, classifier_id):
             headers={
                 'Authorization': 'Token {}'.format(MONKEYLEARN_TOKEN),
                 'Content-Type': 'application/json'
-        })
+            })
 
         try:
             results.extend(response.json()['result'])
@@ -164,7 +164,6 @@ def classify_batch(text_list, classifier_id):
 
 
 def filter_language(texts, language='English'):
-
     # Get the language of the tweets and bios using Monkeylearn's Language classifier
     lang_classifications = classify_batch(texts, MONKEYLEARN_LANG_CLASSIFIER_ID)
 
@@ -173,14 +172,13 @@ def filter_language(texts, language='English'):
         text
         for text, prediction in zip(texts, lang_classifications)
         if prediction[0]['label'] == language
-    ]
+        ]
 
     return lang_texts
 
 
 descriptions_english = filter_language(descriptions)
 print "Descriptions found: {}".format(len(descriptions_english))
-
 
 tweets_english = filter_language(tweets)
 print "Tweets found: {}".format(len(tweets_english))
@@ -206,7 +204,7 @@ def extract_keywords(text_list, max_keywords):
             headers={
                 'Authorization': 'Token {}'.format(MONKEYLEARN_TOKEN),
                 'Content-Type': 'application/json'
-        })
+            })
 
         try:
             results.extend(response.json()['result'])
@@ -222,8 +220,8 @@ import multiprocessing.dummy as multiprocessing
 BING_KEY = ''
 EXPAND_TWEETS = False
 
-def _bing_search(query):
 
+def _bing_search(query):
     MAX_EXPANSIONS = 5
 
     params = {
@@ -261,7 +259,6 @@ def _expand_text(text):
 
 
 def expand_texts(texts):
-
     # First extract hashtags and keywords from the text to form the queries
     queries = []
     keyword_list = extract_keywords(texts, 10)
@@ -278,10 +275,9 @@ def expand_texts(texts):
     pool = multiprocessing.Pool(2)
     return pool.map(_expand_text, queries)
 
-
 # Use Bing search to expand the context of descriptions
 expanded_descriptions = descriptions_english
-#expanded_descriptions = expand_texts(descriptions_english)
+# expanded_descriptions = expand_texts(descriptions_english)
 
 
 # Use Bing search to expand the context of tweets
@@ -295,8 +291,8 @@ else:
 
 from collections import Counter
 
-def category_histogram(texts, short_texts):
 
+def category_histogram(texts, short_texts):
     # Classify the bios and tweets with MonkeyLearn's news classifier.
     topics = classify_batch(texts, MONKEYLEARN_TOPIC_CLASSIFIER_ID)
 
@@ -328,7 +324,6 @@ def category_histogram(texts, short_texts):
 
     return histogram, samples
 
-
 # Classify the expanded bios of the followed users using MonkeyLearn, return the historgram
 descriptions_histogram, descriptions_categorized = category_histogram(expanded_descriptions, descriptions_english)
 
@@ -358,14 +353,14 @@ max_categories = 6
 top_categories, values = zip(*total_histogram.most_common(max_categories))
 
 # Plot the distribution of the top categories with a pie chart
-plt.figure(1, figsize=(5,5))
+plt.figure(1, figsize=(5, 5))
 ax = plt.axes([0.1, 0.1, 0.8, 0.8])
 
 plt.pie(
     values,
     labels=top_categories,
     shadow=True,
-    colors = [
+    colors=[
         (0.86, 0.37, 0.34), (0.86, 0.76, 0.34), (0.57, 0.86, 0.34), (0.34, 0.86, 0.50),
         (0.34, 0.83, 0.86), (0.34, 0.44, 0.86), (0.63, 0.34, 0.86), (0.86, 0.34, 0.70),
     ],
@@ -388,7 +383,6 @@ for category in tweets_categorized:
     expanded = 0
     joined_texts[category] = u' '.join(map(lambda t: t[expanded], tweets_categorized[category]))
 
-
 keywords = dict(zip(joined_texts.keys(), extract_keywords(joined_texts.values(), 20)))
 
 for cat, kw in keywords.iteritems():
@@ -399,13 +393,13 @@ for cat, kw in keywords.iteritems():
 
     print u"{}: {}".format(cat, u", ".join(top_relevant))
 
-
 from IPython.display import Javascript
 
 libs = [
     "http://d3js.org/d3.v3.min.js",
     "http://www.jasondavies.com/wordcloud/d3.layout.cloud.js"
 ]
+
 
 def plot_wordcloud(wordcloud):
     return Javascript("""
@@ -451,7 +445,7 @@ def plot_wordcloud(wordcloud):
 
 
 wordcloud = map(
-    lambda s: {'text': s['keyword'], 'size': 15 + 40*float(s['relevance'])},
+    lambda s: {'text': s['keyword'], 'size': 15 + 40 * float(s['relevance'])},
     keywords['Society/Special Occasions']
 )
 plot_wordcloud(wordcloud)
