@@ -26,7 +26,7 @@ $settings = array(
 
 $url = "https://api.twitter.com/1.1/statuses/user_timeline.json";
 $requestMethod = "GET";
-if (isset($_GET['user']))  {$user = $_GET['user'];}  else {$user  = "Lishniii";}
+if (isset($_GET['user']))  {$user = $_GET['user'];}  else {$user  = "nHiRanZ";}
 if (isset($_GET['count'])) {$count = $_GET['count'];} else {$count = 500;}
 if (isset($_GET['include_rts'])) {$include_rts = $_GET['include_rts'];} else {$include_rts = false;}
 if (isset($_GET['exclude_replies'])) {$exclude_replies = $_GET['exclude_replies'];} else {$exclude_replies = 1;}
@@ -37,8 +37,10 @@ $string = json_decode($twitter->setGetfield($getfield)
     ->performRequest(),$assoc = TRUE);
 
 $allTweets = [];
+$userDetails = [];
 foreach($string as $items)
 {
+    $userDetails = $items['user'];
     array_push($allTweets, $items['text']);
 }
 
@@ -89,12 +91,11 @@ foreach($result as $items)
             <div class="w3-card-2 w3-round w3-white">
                 <div class="w3-container">
                     <h4 class="w3-center">My Profile</h4>
-                    <p class="w3-center"><img src="assets/images/user.jpg" class="w3-circle"
+                    <p class="w3-center"><img src="<?php echo $userDetails['profile_image_url']; ?>" class="w3-circle"
                                               style="height:106px;width:106px" alt="Avatar"></p>
                     <hr>
-                    <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> Designer, UI</p>
-                    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> London, UK</p>
-                    <p><i class="fa fa-birthday-cake fa-fw w3-margin-right w3-text-theme"></i> April 1, 1988</p>
+                    <p><i class="fa fa-pencil fa-fw w3-margin-right w3-text-theme"></i> <?php echo $userDetails['name']; ?></p>
+                    <p><i class="fa fa-home fa-fw w3-margin-right w3-text-theme"></i> <?php echo $userDetails['location']; ?></p>
                 </div>
             </div>
             <br>
