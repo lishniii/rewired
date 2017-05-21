@@ -1,43 +1,29 @@
-# coding: utf-8
-
-### Set Twitter and MonkeyLearn API credentials
-
-# You can get Twitter API credentials [by signing in with your Twitter account](https://apps.twitter.com) and then registering an app.
-
-# TWITTER SETTINGS
-# Put here your credentials to consume Twitter API
+# credentials to consume Twitter API
 TWITTER_CONSUMER_KEY = 'qJSNJwu5V1Q21QTDYY2IZ3UGA'
 TWITTER_CONSUMER_SECRET = 'hhCgYgLaRWSHXcCdA09N3qIUk3JKFXWAxVPQS7ES9NMjT4gu3o'
 TWITTER_ACCESS_TOKEN_KEY = '227584299-k53yk9HxwG2jwwNJMf4lfs20RXc4OhoBApobgZsE'
 TWITTER_ACCESS_TOKEN_SECRET = 'pvA9JkE4rv4C55zY3SOX8qZP14vriOFghsUrMvRcazL68'
 
-# This is the twitter user that we will be profiling using our news classifier.
-# TWITTER_USER = 'raulgarreta'
+# twitter user that we will be profiling using our news classifier.
 TWITTER_USER = 'katyperry'
 
-
-# You can [signup with MonkeyLearn](http://www.monkeylearn.com/) and get your [API token](https://app.monkeylearn.com/accounts/user/settings/).
-
 # MONKEYLEARN SETTINGS
-# Put here your MonkeyLearn API token
 MONKEYLEARN_TOKEN = '81137672d671ea08af4938ad6a970f4f7bdc8a21'
 
 MONKEYLEARN_CLASSIFIER_BASE_URL = 'https://api.monkeylearn.com/api/v1/categorizer/'
 MONKEYLEARN_EXTRACTOR_BASE_URL = 'https://api.monkeylearn.com/api/v1/extraction/'
 
-# This classifier is used to detect the tweet/bio's language
+# classifier to detect the tweet's language
 MONKEYLEARN_LANG_CLASSIFIER_ID = 'cl_hDDngsX8'
 
-# This classifier is used to detect the tweet/bio's topics
+# classifier to detect the tweet's topics
 MONKEYLEARN_TOPIC_CLASSIFIER_ID = 'cl_5icAVzKR'
 
-# This extractor is used to extract keywords from tweets and bios
+# extractor to extract keywords from tweets
 MONKEYLEARN_EXTRACTOR_ID = 'ex_y7BPYzNG'
 
 
-### Get user data with Twitter API
-
-# tweepy is used to call the Twitter API from Python
+# tweepy the Twitter API from Python
 import tweepy
 import re
 
